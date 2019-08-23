@@ -1,3 +1,4 @@
 /node_modules/
 /assert/1.mp4
 /logs/*
+.DS_Store

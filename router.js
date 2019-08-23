@@ -1,5 +1,6 @@
 const {spawn} = require('child_process');
 const Router = require('koa-router');
+const ffmpegPath = require('./config')
 const router = new Router();
 
 let FFMPEG_ARGS = `-re -i ./assert/1.mp4 -c copy -f flv rtmp://localhost/live/test`;
@@ -28,7 +29,7 @@ router.get('/startLive', async(ctx) => {
 
   console.log('开始生产直播流');
 
-  let child = spawn('ffmpeg', FFMPEG_ARGS.split(' '), {
+  let child = spawn(ffmpegPath, FFMPEG_ARGS.split(' '), {
     cwd: process.cwd()
   })
 
