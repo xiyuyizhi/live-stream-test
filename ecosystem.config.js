@@ -23,7 +23,10 @@ module.exports = {
       name: 'live-server',
       script: 'nms.js',
       error_file: 'logs/err_nms.log',
-      out_file: 'logs/out_nms.log'
+      out_file: 'logs/out_nms.log',
+      env_production: {
+        NODE_ENV: 'production'
+      }
     }
   ]
 }
