@@ -2,6 +2,7 @@ const Koa = require('koa')
 const serve = require('koa-static')
 const logger = require('koa-logger')
 const router = require('./router')
+const cors = require('./cors');
 const app = new Koa();
 
 //logger
@@ -9,6 +10,8 @@ app.use(logger())
 
 //static
 app.use(serve(__dirname + '/media'))
+
+app.use(cors);
 
 // api distribute
 app.use(router.routes())

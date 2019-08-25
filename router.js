@@ -19,8 +19,11 @@ router.get('/startLive', async(ctx) => {
 
   if (liveInProcess) {
     ctx.body = {
-      code: 1,
-      msg: '当前存在直播流,请勿重新生成'
+      code: 0,
+      data: {
+        ts: 'http://live.xiyuyizhi.xyz/live/test/index.m3u8',
+        flv: 'http://live.xiyuyizhi.xyz/live/test.flv'
+      }
     }
     return;
   }
@@ -64,8 +67,8 @@ router.get('/startLive', async(ctx) => {
   ctx.body = {
     code: 0,
     data: {
-      ts: 'http://localhost:7990/live/test/index.m3u8',
-      flv: 'http://localhost:7990/live/test.flv'
+      ts: 'http://live.xiyuyizhi.xyz/live/test/index.m3u8',
+      flv: 'http://live.xiyuyizhi.xyz/live/test.flv'
     }
   }
 
