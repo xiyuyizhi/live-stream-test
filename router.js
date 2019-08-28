@@ -1,6 +1,6 @@
 const {spawn} = require('child_process');
 const Router = require('koa-router');
-const ffmpegPath = require('./config')
+const {ffmpegPath, streamAddress} = require('./config')
 const router = new Router();
 
 let FFMPEG_ARGS = `-re -i ./assert/1.mp4 -c copy -f flv rtmp://localhost/live/test`;
@@ -20,10 +20,7 @@ router.get('/startLive', async(ctx) => {
   if (liveInProcess) {
     ctx.body = {
       code: 0,
-      data: {
-        ts: 'http://live.xiyuyizhi.xyz/live/test/index.m3u8',
-        flv: 'http://live.xiyuyizhi.xyz/live/test.flv'
-      }
+      data: streamAddress
     }
     return;
   }
@@ -66,10 +63,7 @@ router.get('/startLive', async(ctx) => {
   
   ctx.body = {
     code: 0,
-    data: {
-      ts: 'http://live.xiyuyizhi.xyz/live/test/index.m3u8',
-      flv: 'http://live.xiyuyizhi.xyz/live/test.flv'
-    }
+    data: streamAddress
   }
 
 })

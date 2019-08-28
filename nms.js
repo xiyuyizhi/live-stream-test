@@ -1,5 +1,5 @@
 const NodeMediaServer = require('node-media-server');
-const ffmpegPath = require('./config')
+const {ffmpegPath} = require('./config')
 const config = {
   rtmp: {
     port: 1935,
