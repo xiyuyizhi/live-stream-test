@@ -61,6 +61,8 @@ router.get('/startLive', async(ctx) => {
   if (!liveInProcess) 
     return;
   
+  console.log('gene live stream at:' + new Date().toLocaleString());
+
   ctx.body = {
     code: 0,
     data: streamAddress
