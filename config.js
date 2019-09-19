@@ -1,7 +1,7 @@
 let ffmpegPath;
 let streamAddress;
 if (process.env.NODE_ENV === 'production') {
-  ffmpegPath = '/root/ffmpeg/ffmpeg'
+  ffmpegPath = '/usr/bin/ffmpeg'
   streamAddress = {
     ts: 'http://live.xiyuyizhi.xyz/live/test/index.m3u8',
     flv: 'http://live.xiyuyizhi.xyz/live/test.flv',
